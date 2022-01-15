@@ -5,11 +5,8 @@
 package com.mycompany.csvwilberth;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.util.LinkedList;
-
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -205,7 +202,20 @@ public class Vista extends javax.swing.JFrame {
 
         if(seleccionarArchivo.showDialog(this, "GUARDAR CSV")==JFileChooser.APPROVE_OPTION){
             File archivo =seleccionarArchivo.getSelectedFile();
-            fichero.guardarArchivo(archivo);
+            if(archivo.getName().endsWith("csv")){
+                fichero.guardarArchivo(archivo);
+                JOptionPane.showMessageDialog(null, "Archivo Guardado de forma correcta");
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Se debe agregar la extension .csv");
+            }
+            
+           
+            /*
+            if(archivo.endsWith("csv")){
+
+            }
+            */
 
         }
 

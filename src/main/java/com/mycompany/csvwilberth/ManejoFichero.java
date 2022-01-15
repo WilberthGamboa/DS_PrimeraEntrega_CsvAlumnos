@@ -33,6 +33,7 @@ public class ManejoFichero {
                 //TODO: handle exception
             }
         }
+       
     }
 
     public void nuevoAlumno( javax.swing.JTextField matriculajTextField1,javax.swing.JTextField apellidoPjTextField1 , javax.swing.JTextField apellidoMjTextField1 , javax.swing.JTextField nombresjTextField1 ){
