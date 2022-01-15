@@ -180,11 +180,44 @@ public class Vista extends javax.swing.JFrame {
         listaAlumnos.add(nuevoAlumno);
         
         */
-        fichero.nuevoAlumno(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
+        fichero.guardarAlumno(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void ImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportarActionPerformed
         // TODO add your handling code here:
+        
+        JFileChooser seleccionarArchivo = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
+        seleccionarArchivo.setFileFilter(filtro);
+        /*
+        int seleccionar = seleccionarArchivo.showOpenDialog(this);
+        if(seleccionar == JFileChooser.APPROVE_OPTION){
+            File archivo =seleccionarArchivo.getSelectedFile();
+            guardarArchivo(archivo);
+        }
+        */
+
+        if(seleccionarArchivo.showDialog(this, "ABRIR CSV")==JFileChooser.APPROVE_OPTION){
+            File archivo =seleccionarArchivo.getSelectedFile();
+            if(archivo.getName().endsWith("csv")){
+                fichero.importarArchivos(archivo);
+                JOptionPane.showMessageDialog(null, "Archivo Guardado de forma correcta");
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Se debe agregar la extension .csv");
+            }
+            
+           
+            /*
+            if(archivo.endsWith("csv")){
+
+            }
+            */
+
+        }
+
+
+
     }//GEN-LAST:event_ImportarActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
@@ -203,7 +236,7 @@ public class Vista extends javax.swing.JFrame {
         if(seleccionarArchivo.showDialog(this, "GUARDAR CSV")==JFileChooser.APPROVE_OPTION){
             File archivo =seleccionarArchivo.getSelectedFile();
             if(archivo.getName().endsWith("csv")){
-                fichero.guardarArchivo(archivo);
+                fichero.exportarArchivo(archivo);
                 JOptionPane.showMessageDialog(null, "Archivo Guardado de forma correcta");
 
             }else{
