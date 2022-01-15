@@ -17,7 +17,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author wmgc5
  */
 public class Vista extends javax.swing.JFrame {
-    LinkedList<ListaAlumnos> listaAlumnos = new LinkedList<>();
+    ManejoFichero fichero = new ManejoFichero();
+    
 
     /**
      * Creates new form Vista
@@ -166,38 +167,14 @@ public class Vista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void guardarArchivo(File archivo){
-        FileWriter fichero = null;
-        PrintWriter pw= null;
-        try {
-            fichero = new FileWriter(archivo);
-            pw  = new PrintWriter(fichero);
-            for(ListaAlumnos u:  listaAlumnos){
-                String linea = u.getMatricula()+","+u.getPrimerApellido()+","+u.getSegundoApellido()+","+u.getNombres();
-                pw.println(linea);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            //TODO: handle exception
-        }
-        finally{
-            try {
-                if(fichero!=null){
-                    fichero.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                //TODO: handle exception
-            }
-        }
-    }
+    
     private void apellidoPjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoPjTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_apellidoPjTextField1ActionPerformed
 
     private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
         // TODO add your handling code here:
-
+        /*
         ListaAlumnos nuevoAlumno = new ListaAlumnos();
         nuevoAlumno.setMatricula(matriculajTextField1.getText());
         nuevoAlumno.setPrimerApellido(apellidoPjTextField1.getText());
@@ -205,6 +182,8 @@ public class Vista extends javax.swing.JFrame {
         nuevoAlumno.setNombres(nombresjTextField1.getText());
         listaAlumnos.add(nuevoAlumno);
         
+        */
+        fichero.nuevoAlumno(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void ImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportarActionPerformed
@@ -226,7 +205,7 @@ public class Vista extends javax.swing.JFrame {
 
         if(seleccionarArchivo.showDialog(this, "GUARDAR CSV")==JFileChooser.APPROVE_OPTION){
             File archivo =seleccionarArchivo.getSelectedFile();
-            guardarArchivo(archivo);
+            fichero.guardarArchivo(archivo);
 
         }
 
