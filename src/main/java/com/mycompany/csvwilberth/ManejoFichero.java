@@ -10,7 +10,8 @@ import java.util.LinkedList;
 public class ManejoFichero {
    
     private LinkedList<ListaAlumnos> listaAlumnos = new LinkedList<>();
-
+    private LinkedList <Calificaciones> calificaciones = new LinkedList<>();
+    private int navegador =0;
     public void exportarArchivo(File archivo){
       
         FileWriter fichero = null;
@@ -20,8 +21,8 @@ public class ManejoFichero {
         try {
             fichero = new FileWriter(archivo);
             pw  = new PrintWriter(fichero);
-            for(ListaAlumnos u:  listaAlumnos){
-                String linea = u.getMatricula()+","+u.getPrimerApellido()+","+u.getSegundoApellido()+","+u.getNombres();
+            for(Calificaciones u:  calificaciones){
+                String linea = u.getMatricula()+","+u.getNombreAsignatura()+","+u.getCalificacion();
                 pw.println(linea);
             }
         } catch (Exception e) {
@@ -78,28 +79,64 @@ public class ManejoFichero {
         }
 
     }
-    public void nuevoAlumno(javax.swing.JTextField matriculajTextField1,javax.swing.JTextField apellidoPjTextField1 , javax.swing.JTextField apellidoMjTextField1 , javax.swing.JTextField nombresjTextField1){
-
-    }
-
-    public void guardarAlumno( javax.swing.JTextField matriculajTextField1,javax.swing.JTextField apellidoPjTextField1 , javax.swing.JTextField apellidoMjTextField1 , javax.swing.JTextField nombresjTextField1 ){
-        ListaAlumnos nuevoAlumno = new ListaAlumnos();
-        nuevoAlumno.setMatricula(matriculajTextField1.getText());
-        nuevoAlumno.setPrimerApellido(apellidoPjTextField1.getText());
-        nuevoAlumno.setSegundoApellido(apellidoMjTextField1.getText());
-        nuevoAlumno.setNombres(nombresjTextField1.getText());
-        listaAlumnos.add(nuevoAlumno);
     
 
-    }
-    public void importarArchivos(){
+    public void guardarAlumno( javax.swing.JTextField matriculajTextField1,javax.swing.JTextField MateriajTextField1,javax.swing.JTextField CalificacionjTextField2){
+        
+        Calificaciones nuevaCalificaciones = new Calificaciones();
+        nuevaCalificaciones.setMatricula(matriculajTextField1.getText());
+        nuevaCalificaciones.setNombreAsignatura(MateriajTextField1.getText());
+        nuevaCalificaciones.setCalificacion(Integer.parseInt(CalificacionjTextField2.getText()));
+        /*
+        nuevoAlumno.setMatricula(matriculajTextField1.getText());
+        nuevoAlumno.setPrimerApellido(MateriajTextField1.getText());
+        nuevoAlumno.setSegundoApellido(cali.getText());
+        nuevoAlumno.setNombres(nombresjTextField1.getText());
+         listaAlumnos.add(nuevoAlumno);
+    
+        */
+        calificaciones.add(nuevaCalificaciones);
+       
 
     }
+   public void inicio(javax.swing.JTextField matriculajTextField1, javax.swing.JTextField apellidoPjTextField1, javax.swing.JTextField apellidoMjTextField1, javax.swing.JTextField nombresjTextField){
+       
+       matriculajTextField1.setText(listaAlumnos.get(navegador).getMatricula());
+       matriculajTextField1.setEnabled(false);
+       apellidoPjTextField1.setText(listaAlumnos.get(navegador).getPrimerApellido());
+       apellidoPjTextField1.setEnabled(false);
+       apellidoMjTextField1.setText(listaAlumnos.get(navegador).getSegundoApellido());
+       apellidoMjTextField1.setEnabled(false);
+       nombresjTextField.setText(listaAlumnos.get(navegador).getNombres());
+        nombresjTextField.setEnabled(false);
 
-    public void exportarAlumnos(){
+       
+   }
+    public void atras(){
+        navegador=navegador-1;
+        if(navegador==-1){
+            navegador=0;
+        }else if(navegador>calificaciones.size()){
+            navegador=calificaciones.size();
+        }
+
+        
 
     }
 
+    public void delante(){
+        navegador=navegador+1;
+        if(navegador==-1){
+            navegador=0;
+        }else if(navegador>listaAlumnos.size()){
+            navegador=listaAlumnos.size();
+        }
+
+      
+
+    }
+
+    
     
 
     
