@@ -72,43 +72,28 @@ public class Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Importar = new javax.swing.JToggleButton();
-        Guardar = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Exportar = new javax.swing.JToggleButton();
-        Nuevo = new javax.swing.JToggleButton();
         matriculajTextField1 = new javax.swing.JTextField();
         apellidoPjTextField1 = new javax.swing.JTextField();
         apellidoMjTextField1 = new javax.swing.JTextField();
         nombresjTextField1 = new javax.swing.JTextField();
-        AtrasjToggleButton1 = new javax.swing.JToggleButton();
-        AdelantejToggleButton2 = new javax.swing.JToggleButton();
         MateriajTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         CalificacionjTextField2 = new javax.swing.JTextField();
+        importarbienjButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 ventanaCerrada(evt);
-            }
-        });
-
-        Importar.setText("Importar");
-        Importar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImportarActionPerformed(evt);
-            }
-        });
-
-        Guardar.setText("Guardar");
-        Guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarActionPerformed(evt);
             }
         });
 
@@ -119,15 +104,6 @@ public class Vista extends javax.swing.JFrame {
         jLabel3.setText("Apellido M");
 
         jLabel4.setText("Nombres");
-
-        Exportar.setText("Exportar");
-
-        Nuevo.setText("Nuevo");
-        Nuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NuevoActionPerformed(evt);
-            }
-        });
 
         matriculajTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,20 +129,6 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        AtrasjToggleButton1.setText("ATRAS");
-        AtrasjToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AtrasjToggleButton1ActionPerformed(evt);
-            }
-        });
-
-        AdelantejToggleButton2.setText("ADELANTE");
-        AdelantejToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdelantejToggleButton2ActionPerformed(evt);
-            }
-        });
-
         MateriajTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MateriajTextField1ActionPerformed(evt);
@@ -183,12 +145,47 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        importarbienjButton1.setText("Importar");
+        importarbienjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importarbienjButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Exportar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Atras");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Adelante");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,20 +204,23 @@ public class Vista extends javax.swing.JFrame {
                             .addComponent(nombresjTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                             .addComponent(CalificacionjTextField2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(AtrasjToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addComponent(importarbienjButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(41, 41, 41))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(Importar)
-                        .addGap(40, 40, 40)
-                        .addComponent(Nuevo)
-                        .addGap(39, 39, 39)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44)
+                        .addContainerGap()
+                        .addComponent(jButton4)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Exportar)
-                    .addComponent(AdelantejToggleButton2))
-                .addContainerGap(38, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton3)
+                        .addContainerGap(84, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,21 +249,16 @@ public class Vista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(CalificacionjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Importar)
-                    .addComponent(Nuevo)
-                    .addComponent(Guardar)
-                    .addComponent(Exportar))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(AtrasjToggleButton1)
-                        .addContainerGap(44, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AdelantejToggleButton2)
-                        .addGap(26, 26, 26))))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(importarbienjButton1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addGap(70, 70, 70))
         );
 
         pack();
@@ -291,45 +286,31 @@ public class Vista extends javax.swing.JFrame {
         apellidoPjTextField1.setEnabled(false);
     }//GEN-LAST:event_apellidoPjTextField1ActionPerformed
 
-    private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
+    private void matriculajTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculajTextField1ActionPerformed
         // TODO add your handling code here:
-        /*
-        ListaAlumnos nuevoAlumno = new ListaAlumnos();
-        nuevoAlumno.setMatricula(matriculajTextField1.getText());
-        nuevoAlumno.setPrimerApellido(apellidoPjTextField1.getText());
-        nuevoAlumno.setSegundoApellido(apellidoMjTextField1.getText());
-        nuevoAlumno.setNombres(nombresjTextField1.getText());
-        listaAlumnos.add(nuevoAlumno);
-        
-        */
-        fichero.guardarAlumno(matriculajTextField1, MateriajTextField1, CalificacionjTextField2);
-        
-       
-        fichero.borrarAlumnos(fichero.getNavegador());
-        if(fichero.confirmarCaptura()){
-            MateriajTextField1.setEnabled(false);
-            CalificacionjTextField2.setEnabled(false);
-            matriculajTextField1.setText("");
-       
-            apellidoPjTextField1.setText("");
-           
-            apellidoMjTextField1.setText("");
-            
-            nombresjTextField1.setText("");
-            MateriajTextField1.setText("");
-            
-            CalificacionjTextField2.setText("");
-            Nuevo.setEnabled(false);
+        matriculajTextField1.setEnabled(false);
+    }//GEN-LAST:event_matriculajTextField1ActionPerformed
 
-        }
-       
-       
-        
-    }//GEN-LAST:event_NuevoActionPerformed
-
-    private void ImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportarActionPerformed
+    private void apellidoMjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoMjTextField1ActionPerformed
         // TODO add your handling code here:
-        
+        apellidoMjTextField1.setEnabled(false);
+    }//GEN-LAST:event_apellidoMjTextField1ActionPerformed
+
+    private void nombresjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombresjTextField1ActionPerformed
+        // TODO add your handling code here:
+        nombresjTextField1.setEnabled(false);
+    }//GEN-LAST:event_nombresjTextField1ActionPerformed
+
+    private void MateriajTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MateriajTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MateriajTextField1ActionPerformed
+
+    private void CalificacionjTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalificacionjTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CalificacionjTextField2ActionPerformed
+
+    private void importarbienjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarbienjButton1ActionPerformed
+        // TODO add your handling code here:
         JFileChooser seleccionarArchivo = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
         seleccionarArchivo.setFileFilter(filtro);
@@ -371,12 +352,43 @@ public class Vista extends javax.swing.JFrame {
 
         }
 
+    }//GEN-LAST:event_importarbienjButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        /*
+        ListaAlumnos nuevoAlumno = new ListaAlumnos();
+        nuevoAlumno.setMatricula(matriculajTextField1.getText());
+        nuevoAlumno.setPrimerApellido(apellidoPjTextField1.getText());
+        nuevoAlumno.setSegundoApellido(apellidoMjTextField1.getText());
+        nuevoAlumno.setNombres(nombresjTextField1.getText());
+        listaAlumnos.add(nuevoAlumno);
+        
+        */
+        fichero.guardarAlumno(matriculajTextField1, MateriajTextField1, CalificacionjTextField2);
+        
+       
+        fichero.borrarAlumnos(fichero.getNavegador());
+        if(fichero.confirmarCaptura()){
+            MateriajTextField1.setEnabled(false);
+            CalificacionjTextField2.setEnabled(false);
+            matriculajTextField1.setText("");
+       
+            apellidoPjTextField1.setText("");
+           
+            apellidoMjTextField1.setText("");
+            
+            nombresjTextField1.setText("");
+            MateriajTextField1.setText("");
+            
+            CalificacionjTextField2.setText("");
+            jButton2.setEnabled(false);
 
-    }//GEN-LAST:event_ImportarActionPerformed
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JFileChooser seleccionarArchivo = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
         seleccionarArchivo.setFileFilter(filtro);
@@ -424,61 +436,36 @@ public class Vista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "DEBES IMPORTAR EL ARCHIVO CSV");
 
         }
-        
-        
+         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    }//GEN-LAST:event_GuardarActionPerformed
-
-    private void matriculajTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculajTextField1ActionPerformed
-        // TODO add your handling code here:
-        matriculajTextField1.setEnabled(false);
-    }//GEN-LAST:event_matriculajTextField1ActionPerformed
-
-    private void apellidoMjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoMjTextField1ActionPerformed
-        // TODO add your handling code here:
-        apellidoMjTextField1.setEnabled(false);
-    }//GEN-LAST:event_apellidoMjTextField1ActionPerformed
-
-    private void nombresjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombresjTextField1ActionPerformed
-        // TODO add your handling code here:
-        nombresjTextField1.setEnabled(false);
-    }//GEN-LAST:event_nombresjTextField1ActionPerformed
-
-    private void AtrasjToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasjToggleButton1ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         fichero.atras();
         fichero.inicio(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
-    }//GEN-LAST:event_AtrasjToggleButton1ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void MateriajTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MateriajTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MateriajTextField1ActionPerformed
-
-    private void CalificacionjTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalificacionjTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CalificacionjTextField2ActionPerformed
-
-    private void AdelantejToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdelantejToggleButton2ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         fichero.delante();
         fichero.inicio(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
-    }//GEN-LAST:event_AdelantejToggleButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton AdelantejToggleButton2;
-    private javax.swing.JToggleButton AtrasjToggleButton1;
     private javax.swing.JTextField CalificacionjTextField2;
-    private javax.swing.JToggleButton Exportar;
-    private javax.swing.JToggleButton Guardar;
-    private javax.swing.JToggleButton Importar;
     private javax.swing.JTextField MateriajTextField1;
-    private javax.swing.JToggleButton Nuevo;
     private javax.swing.JTextField apellidoMjTextField1;
     private javax.swing.JTextField apellidoPjTextField1;
+    private javax.swing.JButton importarbienjButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
