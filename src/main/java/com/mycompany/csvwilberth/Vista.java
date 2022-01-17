@@ -245,6 +245,23 @@ public class Vista extends javax.swing.JFrame {
         
        
         fichero.borrarAlumnos(fichero.getNavegador());
+        if(fichero.confirmarCaptura()){
+            MateriajTextField1.setEnabled(false);
+            CalificacionjTextField2.setEnabled(false);
+            matriculajTextField1.setText("");
+       
+            apellidoPjTextField1.setText("");
+           
+            apellidoMjTextField1.setText("");
+            
+            nombresjTextField1.setText("");
+            MateriajTextField1.setText("");
+            
+            CalificacionjTextField2.setText("");
+            Nuevo.setEnabled(false);
+
+        }
+       
        
         
     }//GEN-LAST:event_NuevoActionPerformed
