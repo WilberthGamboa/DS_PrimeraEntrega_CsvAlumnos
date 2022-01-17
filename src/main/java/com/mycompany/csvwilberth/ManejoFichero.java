@@ -12,6 +12,9 @@ public class ManejoFichero {
     private LinkedList<ListaAlumnos> listaAlumnos = new LinkedList<>();
     private LinkedList <Calificaciones> calificaciones = new LinkedList<>();
     private int navegador =0;
+    private int importarConfirmado = 0;
+    private int cantidadColumnas;
+    private int confirmarCapturas;
     public void exportarArchivo(File archivo){
       
         FileWriter fichero = null;
@@ -53,6 +56,8 @@ public class ManejoFichero {
             while ((linea=br.readLine())!=null){
 
                 String arreglo [] = linea.split(",");
+                cantidadColumnas=arreglo.length;
+               
                 if(arreglo.length==4){
                     ListaAlumnos a  = new ListaAlumnos();
                     a.setMatricula(arreglo[0]);
@@ -102,22 +107,32 @@ public class ManejoFichero {
    public void inicio(javax.swing.JTextField matriculajTextField1, javax.swing.JTextField apellidoPjTextField1, javax.swing.JTextField apellidoMjTextField1, javax.swing.JTextField nombresjTextField){
        
        matriculajTextField1.setText(listaAlumnos.get(navegador).getMatricula());
-       matriculajTextField1.setEnabled(false);
+       
        apellidoPjTextField1.setText(listaAlumnos.get(navegador).getPrimerApellido());
-       apellidoPjTextField1.setEnabled(false);
+      
        apellidoMjTextField1.setText(listaAlumnos.get(navegador).getSegundoApellido());
-       apellidoMjTextField1.setEnabled(false);
+       
        nombresjTextField.setText(listaAlumnos.get(navegador).getNombres());
-        nombresjTextField.setEnabled(false);
+       
 
        
    }
+/*
+   public void bloquearTexto(javax.swing.JTextField MateriajTextField1, javax.swing.JTextField CalificacionjTextField2){
+    MateriajTextField1.setEnabled(false);
+    CalificacionjTextField2.setEnabled(false);
+   }
+
+   public void desbloquearTexto(javax.swing.JTextField MateriajTextField1, javax.swing.JTextField CalificacionjTextField2){
+    MateriajTextField1.setEnabled(true);
+    CalificacionjTextField2.setEnabled(true);
+   }
+
+   */
     public void atras(){
         navegador=navegador-1;
         if(navegador==-1){
             navegador=0;
-        }else if(navegador>calificaciones.size()){
-            navegador=calificaciones.size();
         }
 
         
@@ -126,9 +141,7 @@ public class ManejoFichero {
 
     public void delante(){
         navegador=navegador+1;
-        if(navegador==-1){
-            navegador=0;
-        }else if(navegador>listaAlumnos.size()){
+       if(navegador>listaAlumnos.size()){
             navegador=listaAlumnos.size();
         }
 
@@ -136,8 +149,49 @@ public class ManejoFichero {
 
     }
 
-    
+    public void setImportarConfirmado(){
+        importarConfirmado=1;
+    }
+
+
+    public int getImportarConfirmado() {
+        return importarConfirmado;
+    }
+
+
+    public int getCantidadColumnas() {
+        return cantidadColumnas;
+    }
+
+
+    public int getNavegador() {
+        return navegador;
+    }
+
+    public void borrarAlumnos(int index){
+        listaAlumnos.remove(index);
+        setNavegador();
+    }
+
+
+    public void setNavegador() {
+        navegador=listaAlumnos.size();
+        
+    }
+
+
+    public int getConfirmarCapturas() {
+        confirmarCapturas=listaAlumnos.size();
+        return confirmarCapturas;
+    }
+
+    public boolean confirmarCaptura(){
+        return listaAlumnos.isEmpty();
+    }
+
+
     
 
     
+      
 }

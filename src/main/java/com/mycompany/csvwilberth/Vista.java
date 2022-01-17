@@ -227,6 +227,7 @@ public class Vista extends javax.swing.JFrame {
     
     private void apellidoPjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoPjTextField1ActionPerformed
         // TODO add your handling code here:
+        apellidoPjTextField1.setEnabled(false);
     }//GEN-LAST:event_apellidoPjTextField1ActionPerformed
 
     private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
@@ -241,6 +242,11 @@ public class Vista extends javax.swing.JFrame {
         
         */
         fichero.guardarAlumno(matriculajTextField1, MateriajTextField1, CalificacionjTextField2);
+        
+       
+        fichero.borrarAlumnos(fichero.getNavegador());
+       
+        
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void ImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportarActionPerformed
@@ -261,9 +267,19 @@ public class Vista extends javax.swing.JFrame {
             File archivo =seleccionarArchivo.getSelectedFile();
             if(archivo.getName().endsWith("csv")){
                 fichero.importarArchivos(archivo);
-                JOptionPane.showMessageDialog(null, "Archivo seleccionado de forma correcta");
-                fichero.inicio(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
-
+                if(fichero.getCantidadColumnas()==4){
+                    
+                    MateriajTextField1.setEnabled(true);
+                   CalificacionjTextField2.setEnabled(true);
+  
+                    fichero.inicio(matriculajTextField1, apellidoPjTextField1, apellidoMjTextField1, nombresjTextField1);
+                    fichero.setImportarConfirmado();
+                       
+                    JOptionPane.showMessageDialog(null, "Archivo seleccionado de forma correcta");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Cantidad de columnas incorrectas");
+                }
+                
             }else{
                 JOptionPane.showMessageDialog(null, "El archivo seleccionado no tiene la extension csv");
             }
@@ -293,39 +309,61 @@ public class Vista extends javax.swing.JFrame {
             guardarArchivo(archivo);
         }
         */
+        if(fichero.getImportarConfirmado()==1){
 
-        if(seleccionarArchivo.showDialog(this, "GUARDAR CSV")==JFileChooser.APPROVE_OPTION){
-            File archivo =seleccionarArchivo.getSelectedFile();
-            if(archivo.getName().endsWith("csv")){
-                fichero.exportarArchivo(archivo);
-                JOptionPane.showMessageDialog(null, "Archivo Guardado de forma correcta");
-
+            if(fichero.confirmarCaptura()){
+                if(seleccionarArchivo.showDialog(this, "GUARDAR CSV")==JFileChooser.APPROVE_OPTION){
+                    File archivo =seleccionarArchivo.getSelectedFile();
+                    if(archivo.getName().endsWith("csv")){
+                        fichero.exportarArchivo(archivo);
+                        
+                        
+                       
+                        
+        
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Se debe agregar la extension .csv");
+                    }
+                    
+                   
+                    /*
+                    if(archivo.endsWith("csv")){
+        
+                    }
+                    
+        */
+                }
+                        
             }else{
-                JOptionPane.showMessageDialog(null, "Se debe agregar la extension .csv");
+                JOptionPane.showMessageDialog(null, "No se han registrado todas las calificaciones");
             }
             
-           
-            /*
-            if(archivo.endsWith("csv")){
-
-            }
-            */
+            
+            
 
         }
+        else{
+            JOptionPane.showMessageDialog(null, "DEBES IMPORTAR EL ARCHIVO CSV");
+
+        }
+        
         
 
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void matriculajTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculajTextField1ActionPerformed
         // TODO add your handling code here:
+        matriculajTextField1.setEnabled(false);
     }//GEN-LAST:event_matriculajTextField1ActionPerformed
 
     private void apellidoMjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoMjTextField1ActionPerformed
         // TODO add your handling code here:
+        apellidoMjTextField1.setEnabled(false);
     }//GEN-LAST:event_apellidoMjTextField1ActionPerformed
 
     private void nombresjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombresjTextField1ActionPerformed
         // TODO add your handling code here:
+        nombresjTextField1.setEnabled(false);
     }//GEN-LAST:event_nombresjTextField1ActionPerformed
 
     private void AtrasjToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasjToggleButton1ActionPerformed
@@ -355,21 +393,21 @@ public class Vista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton AdelantejToggleButton2;
     private javax.swing.JToggleButton AtrasjToggleButton1;
-    private javax.swing.JTextField CalificacionjTextField2;
+    javax.swing.JTextField CalificacionjTextField2;
     private javax.swing.JToggleButton Exportar;
     private javax.swing.JToggleButton Guardar;
     private javax.swing.JToggleButton Importar;
-    private javax.swing.JTextField MateriajTextField1;
+    javax.swing.JTextField MateriajTextField1;
     private javax.swing.JToggleButton Nuevo;
-    private javax.swing.JTextField apellidoMjTextField1;
-    private javax.swing.JTextField apellidoPjTextField1;
+    javax.swing.JTextField apellidoMjTextField1;
+    javax.swing.JTextField apellidoPjTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField matriculajTextField1;
-    private javax.swing.JTextField nombresjTextField1;
+    javax.swing.JTextField matriculajTextField1;
+    javax.swing.JTextField nombresjTextField1;
     // End of variables declaration//GEN-END:variables
 }
