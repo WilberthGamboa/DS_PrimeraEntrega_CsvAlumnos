@@ -14,7 +14,7 @@ public class ManejoFichero {
     private int navegador =0;
     private int importarConfirmado = 0;
     private int cantidadColumnas;
-    private int confirmarCapturas;
+  
     public void exportarArchivo(File archivo){
       
         FileWriter fichero = null;
@@ -117,18 +117,7 @@ public class ManejoFichero {
 
        
    }
-/*
-   public void bloquearTexto(javax.swing.JTextField MateriajTextField1, javax.swing.JTextField CalificacionjTextField2){
-    MateriajTextField1.setEnabled(false);
-    CalificacionjTextField2.setEnabled(false);
-   }
 
-   public void desbloquearTexto(javax.swing.JTextField MateriajTextField1, javax.swing.JTextField CalificacionjTextField2){
-    MateriajTextField1.setEnabled(true);
-    CalificacionjTextField2.setEnabled(true);
-   }
-
-   */
     public void atras(){
         navegador=navegador-1;
         if(navegador==-1){
@@ -188,7 +177,18 @@ public class ManejoFichero {
 
 
     
+/*
+   public void bloquearTexto(javax.swing.JTextField MateriajTextField1, javax.swing.JTextField CalificacionjTextField2){
+    MateriajTextField1.setEnabled(false);
+    CalificacionjTextField2.setEnabled(false);
+   }
 
+   public void desbloquearTexto(javax.swing.JTextField MateriajTextField1, javax.swing.JTextField CalificacionjTextField2){
+    MateriajTextField1.setEnabled(true);
+    CalificacionjTextField2.setEnabled(true);
+   }
+
+   */
     
       
 }
