@@ -180,10 +180,7 @@ public class ManejoFichero {
     }
 
 
-    public int getConfirmarCapturas() {
-        confirmarCapturas=listaAlumnos.size();
-        return confirmarCapturas;
-    }
+  
 
     public boolean confirmarCaptura(){
         return listaAlumnos.isEmpty();
