@@ -10,6 +10,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -25,6 +26,7 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         initComponents();
+       // JOptionPane.showMessageDialog(null, "No se ha cargado ningún documento");
        
         matriculajTextField1.setEnabled(false);
         nombresjTextField1.setEnabled(false);
@@ -269,7 +271,7 @@ public class Vista extends javax.swing.JFrame {
    
     public  void confirmarSalida(){
         String opciones[]={"Cerrar sin exportar","Cancelar"};
-    int opcion = JOptionPane.showOptionDialog(this, "Todos los datos capturados, no se ha generado el archivo de calificaciones", "PELIGRO", 0, 0, null, opciones, this);
+    int opcion = JOptionPane.showOptionDialog(this, "Estás seguro de salir de la aplicacion, no se ha generado el archivo de calificaciones", "PELIGRO", 0, 0, null, opciones, this);
     if(opcion==JOptionPane.YES_OPTION){
         System.exit(0);
     }
